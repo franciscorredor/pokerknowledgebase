@@ -8,7 +8,7 @@ public class Hand {
     private PokerCard[] cards;
     private int[] value;
 
-    Hand(Deck d)
+    public Hand(Deck d)
     {
         value = new int[6];
         cards = new PokerCard[5];
@@ -16,6 +16,10 @@ public class Hand {
         {
             cards[x] = d.drawFromDeck();
         }
+        
+        for (PokerCard pokerCard : cards) {
+			System.out.println(pokerCard.toString() );
+		}
 
         int[] ranks = new int[14];
         //miscellaneous cards that are not otherwise significant
@@ -94,87 +98,102 @@ public class Hand {
             topStraightValue=14; //higher than king
         }
         
-        for (int x=0; x<=5; x++)
-        {
-            value[x]=0;
-        }
+        if (ranks[10]==1 && ranks[11]==1 && ranks[12]==1 && 
+                ranks[13]==1 && ranks[1]==1) //ace high
+            {
+                straight=true;
+                topStraightValue=14; //higher than king
+            }
+
+       for (int x=0; x<=5; x++)
+            {
+                value[x]=0;
+            }
+       
+
+       //start hand evaluation
+         if ( sameCards==1 ) {    //if we have no pair...
+             value[0]=1;          //this is the lowest type of hand, so it gets the lowest value
+             value[1]=orderedRanks[0];  //the first determining factor is the highest card,
+             value[2]=orderedRanks[1];  //then the next highest card,
+             value[3]=orderedRanks[2];  //and so on
+             value[4]=orderedRanks[3];
+             value[5]=orderedRanks[4];
+         }
+
+         if (sameCards==2 && sameCards2==1) //if 1 pair
+         {
+             value[0]=2;                //pair ranked higher than high card
+             value[1]=largeGroupRank;   //rank of pair
+             value[2]=orderedRanks[0];  //next highest cards.
+             value[3]=orderedRanks[1];
+             value[4]=orderedRanks[2];
+         }
+
+         if (sameCards==2 && sameCards2==2) //two pair
+         {
+             value[0]=3;
+             //rank of greater pair
+             value[1]= largeGroupRank>smallGroupRank ? largeGroupRank : smallGroupRank;
+             //rank of smaller pair
+             value[2]= largeGroupRank<smallGroupRank ? largeGroupRank : smallGroupRank;
+             value[3]=orderedRanks[0];  //extra card
+         }
+
+         if (sameCards==3 && sameCards2!=2)
+         //three of a kind (not full house)
+         {
+             value[0]=4;
+             value[1]= largeGroupRank;
+             value[2]=orderedRanks[0];
+             value[3]=orderedRanks[1];
+         }
+
+         if (straight)
+         {
+             value[0]=5;
+             value[1]=5;
+             //if we have two straights, 
+             //the one with the highest top cards wins
+         }
+
+         if (flush)   
+         {
+             value[0]=6;
+             value[1]=orderedRanks[0]; //tie determined by ranks of cards
+             value[2]=orderedRanks[1];
+             value[3]=orderedRanks[2];
+             value[4]=orderedRanks[3];
+             value[5]=orderedRanks[4];
+         }
+
+         if (sameCards==3 && sameCards2==2)  //full house
+         {
+             value[0]=7;
+             value[1]=largeGroupRank;
+             value[2]=smallGroupRank;
+         }
+
+         if (sameCards==4)  //four of a kind
+         {
+             value[0]=8;
+             value[1]=largeGroupRank;
+             value[2]=orderedRanks[0];
+         }
+
+         if (straight && flush)  //straight flush
+         {
+             value[0]=9;
+             value[1]=9;
+         }
+        
+        
+    }
+        
+        
+     
 
 
-      //start hand evaluation
-        if ( sameCards==1 ) {    //if we have no pair...
-            value[0]=1;          //this is the lowest type of hand, so it gets the lowest value
-            value[1]=orderedRanks[0];  //the first determining factor is the highest card,
-            value[2]=orderedRanks[1];  //then the next highest card,
-            value[3]=orderedRanks[2];  //and so on
-            value[4]=orderedRanks[3];
-            value[5]=orderedRanks[4];
-        }
-
-        if (sameCards==2 && sameCards2==1) //if 1 pair
-        {
-            value[0]=2;                //pair ranked higher than high card
-            value[1]=largeGroupRank;   //rank of pair
-            value[2]=orderedRanks[0];  //next highest cards.
-            value[3]=orderedRanks[1];
-            value[4]=orderedRanks[2];
-        }
-
-        if (sameCards==2 && sameCards2==2) //two pair
-        {
-            value[0]=3;
-            //rank of greater pair
-            value[1]= largeGroupRank>smallGroupRank ? largeGroupRank : smallGroupRank;
-            //rank of smaller pair
-            value[2]= largeGroupRank<smallGroupRank ? largeGroupRank : smallGroupRank;
-            value[3]=orderedRanks[0];  //extra card
-        }
-
-        if (sameCards==3 && sameCards2!=2)
-        //three of a kind (not full house)
-        {
-            value[0]=4;
-            value[1]= largeGroupRank;
-            value[2]=orderedRanks[0];
-            value[3]=orderedRanks[1];
-        }
-
-        if (straight)
-        {
-            value[0]=5;
-            value[1]=;
-            //if we have two straights, 
-            //the one with the highest top cards wins
-        }
-
-        if (flush)   
-        {
-            value[0]=6;
-            value[1]=orderedRanks[0]; //tie determined by ranks of cards
-            value[2]=orderedRanks[1];
-            value[3]=orderedRanks[2];
-            value[4]=orderedRanks[3];
-            value[5]=orderedRanks[4];
-        }
-
-        if (sameCards==3 && sameCards2==2)  //full house
-        {
-            value[0]=7;
-            value[1]=largeGroupRank;
-            value[2]=smallGroupRank;
-        }
-
-        if (sameCards==4)  //four of a kind
-        {
-            value[0]=8;
-            value[1]=largeGroupRank;
-            value[2]=orderedRanks[0];
-        }
-
-        if (straight && flush)  //straight flush
-        {
-            value[0]=9;
-            value[1]=;
-        }
         
     void display()
     {
@@ -186,30 +205,30 @@ public class Hand {
                 s="high card";
                 break;
             case 2:
-                s="pair of " + Card.rankAsString(value[1]) + "\'s";
+                s="pair of " + PokerCard.rankAsString(value[1]) + "\'s";
                 break;
             case 3:
-                s="two pair " + Card.rankAsString(value[1]) + " " + 
-                                Card.rankAsString(value[2]);
+                s="two pair " + PokerCard.rankAsString(value[1]) + " " + 
+                		PokerCard.rankAsString(value[2]);
                 break;
             case 4:
-                s="three of a kind " + Card.rankAsString(value[1]) + "\'s";
+                s="three of a kind " + PokerCard.rankAsString(value[1]) + "\'s";
                 break;
             case 5:
-                s=Card.rankAsString(value[1]) + " high straight";
+                s=PokerCard.rankAsString(value[1]) + " high straight";
                 break;
             case 6:
                 s="flush";
                 break;
             case 7:
-                s="full house " + Card.rankAsString(value[1]) + " over " + 
-                                  Card.rankAsString(value[2]);
+                s="full house " + PokerCard.rankAsString(value[1]) + " over " + 
+                		PokerCard.rankAsString(value[2]);
                 break;
             case 8:
-                s="four of a kind " + Card.rankAsString(value[1]);
+                s="four of a kind " + PokerCard.rankAsString(value[1]);
                 break;
             case 9:
-                s="straight flush " + Card.rankAsString(value[1]) + " high";
+                s="straight flush " + PokerCard.rankAsString(value[1]) + " high";
                 break;
             default:
                 s="error in Hand.display: value[0] contains invalid value";

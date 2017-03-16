@@ -1,6 +1,7 @@
 package com.wirelesssoft.object;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -25,6 +26,7 @@ public class Deck {
 				cards.add(new PokerCard(a, b));
 			}
 		}
+		Collections.shuffle(cards);
 		
 		/*
 		 * Iprime las cartas/ print the cards from deck
