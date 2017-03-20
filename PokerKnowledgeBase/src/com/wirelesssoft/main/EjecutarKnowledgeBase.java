@@ -24,5 +24,9 @@ public class EjecutarKnowledgeBase {
 		System.out.println("fin" + new Date());
 
 	}
+	
+	//Escenarios de Prueba
+	//01: As, J, Q, K, 10
+	//02: 2, as, JK, Q , K
 
 }

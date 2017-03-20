@@ -11,7 +11,7 @@ public class PokerCard {
         return rankValue[__rank];
     }
 
-    PokerCard(short suit, short rank)
+    public PokerCard(short suit, short rank)
     {
         this.rank=rank;
         this.suit=suit;
