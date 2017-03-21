@@ -19,7 +19,8 @@ public class PokerCard {
 
     public @Override String toString()
     {
-          return rankValue[rank] + " of " + suitType[suit];
+          //return rankValue[rank] + " of " + suitType[suit];
+    	return rankValue[rank] + "" + suitType[suit];
     }
 
     public short getRank() {

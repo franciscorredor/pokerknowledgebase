@@ -59,6 +59,7 @@ public class Hand {
         cardsGamer4.addAll(tableGame);
         cardsGamer5.addAll(tableGame);
         
+        /*
         System.out.println("\ng1 : ");
 		for (PokerCard pokerCard : cardsGamer1) {
 			System.out.print(" [" + pokerCard.toString() + "]" );
@@ -84,21 +85,27 @@ public class Hand {
 			System.out.print(" [" + pokerCard.toString() + "]" );
 		}
 		System.out.println("");
-		
+		*/
+        
 		HandEvaluator he1 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer1);
         he1.display();
+        System.out.println(he1.toString() + he1.getPrimaryValue()+","+he1.getSecondValue());
         
         HandEvaluator he2 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer2);
         he2.display();
+        System.out.println(he2.toString() + he2.getPrimaryValue()+","+he2.getSecondValue());
         
         HandEvaluator he3 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer3);
         he3.display();
+        System.out.println(he3.toString() + he3.getPrimaryValue()+","+he3.getSecondValue());
         
         HandEvaluator he4 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer4);
         he4.display();
+        System.out.println(he4.toString() + he4.getPrimaryValue()+","+he4.getSecondValue());
         
         HandEvaluator he5 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer5);
         he5.display();
+        System.out.println(he5.toString() + he5.getPrimaryValue()+","+he5.getSecondValue());
         
         /*
          * Test case
@@ -128,7 +135,7 @@ public class Hand {
         /*
          * Test case 2
          */
-        
+        /*
         PokerCard c1 = new PokerCard((short)0,(short)2);
 	    PokerCard c2 = new PokerCard((short)1,(short)4);
 	    PokerCard c3 = new PokerCard((short)2,(short)9);
@@ -148,7 +155,7 @@ public class Hand {
 	    
         HandEvaluator test = new HandEvaluator((ArrayList<PokerCard>) testGame);
         test.display();
-        
+        */
 
         
         

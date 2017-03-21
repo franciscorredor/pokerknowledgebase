@@ -204,7 +204,7 @@ public class HandEvaluator implements Comparable<HandEvaluator>{
 			s = "error in Hand.display: value[0] contains invalid value";
 		}
 		s = " " + s;
-		System.out.println(s);
+		System.out.print(s+",");
 	}
 	
 	
@@ -232,15 +232,22 @@ public class HandEvaluator implements Comparable<HandEvaluator>{
 		StringBuilder sb = new StringBuilder();
 		for (int i=0; i<7; i++){
             sb.append(cards.get(i));
-            if (i < 6) {
+            //if (i < 6) {
 				sb.append(", ");
-			}
+			//}
 		}
 		return sb.toString();
 	}
 	
 	public int getPrimaryValue() {
 		return value[0];
+	}
+	
+	public int getSecondValue() {
+		if (value[1] == 0){
+			return 13;
+		}
+		return value[1];
 	}
 
 }

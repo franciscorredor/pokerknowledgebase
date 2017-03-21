@@ -19,8 +19,13 @@ public class EjecutarKnowledgeBase {
 	 */
 	public static void main(String[] args) {
 		System.out.println("inicio" + new Date());
-		Deck d1 = new Deck();
-		Hand h = new Hand(d1);
+		for (int i = 0; i < 13; i++) {
+			System.out.println("-- Iteracion ["+(i)+"] --");
+			Deck d1 = new Deck();
+			Hand h = new Hand(d1);
+			
+		}
+		
 		System.out.println("fin" + new Date());
 
 	}
