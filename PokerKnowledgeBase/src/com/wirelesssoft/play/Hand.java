@@ -86,26 +86,53 @@ public class Hand {
 		}
 		System.out.println("");
 		*/
+       
+        String[] winEvaluator = new String[5];
+        String[] resultado = {"WIN", "WIN", "WIN", "WIN", "WIN"};
+        
         
 		HandEvaluator he1 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer1);
-        he1.display();
-        System.out.println(he1.toString() + he1.getPrimaryValue()+","+he1.getSecondValue());
+		winEvaluator[0] = he1.display()+he1.toString() + he1.getPrimaryValue()+","+he1.getSecondValue();
         
         HandEvaluator he2 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer2);
-        he2.display();
-        System.out.println(he2.toString() + he2.getPrimaryValue()+","+he2.getSecondValue());
+        winEvaluator[1] = he1.display()+he2.toString() + he2.getPrimaryValue()+","+he2.getSecondValue();
         
         HandEvaluator he3 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer3);
-        he3.display();
-        System.out.println(he3.toString() + he3.getPrimaryValue()+","+he3.getSecondValue());
+        winEvaluator[2] = he1.display()+he3.toString() + he3.getPrimaryValue()+","+he3.getSecondValue();
         
         HandEvaluator he4 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer4);
-        he4.display();
-        System.out.println(he4.toString() + he4.getPrimaryValue()+","+he4.getSecondValue());
+        winEvaluator[3] = he1.display()+he4.toString() + he4.getPrimaryValue()+","+he4.getSecondValue();
         
         HandEvaluator he5 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer5);
-        he5.display();
-        System.out.println(he5.toString() + he5.getPrimaryValue()+","+he5.getSecondValue());
+        winEvaluator[4] = he1.display()+he5.toString() + he5.getPrimaryValue()+","+he5.getSecondValue();
+        
+        /*
+         * Iteracion 01
+         */
+        for (int i = 0; i < winEvaluator.length; i++) {
+			int valAct = Integer.parseInt( winEvaluator[i].split(",")[8].trim());
+			for (int j = 0; j < winEvaluator.length; j++) {
+				int valFut = Integer.parseInt( winEvaluator[j].split(",")[8].trim());
+				if (valAct < valFut){
+					resultado[i] = "LOST";
+				}
+			}
+		}
+        
+        //Para los resultados q son WIN, realizar una segunta iteracion con el ultimo valor (secondValue)
+		
+        
+		
+      	//Resultado final
+		for (int i = 0; i < winEvaluator.length; i++) {
+			winEvaluator[i] += ","+resultado[i];
+		}
+		
+		for (int i = 0; i < resultado.length; i++) {
+			//System.out.println("-- ["+(i +1)+"] --");
+			System.out.println(winEvaluator[i]);
+		}
+        
         
         /*
          * Test case

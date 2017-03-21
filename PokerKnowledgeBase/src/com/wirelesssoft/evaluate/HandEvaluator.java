@@ -168,7 +168,7 @@ public class HandEvaluator implements Comparable<HandEvaluator>{
 	/**
 	 * Metodo encargado de mostrar el resultado!
 	 */
-	public void display() {
+	public String display() {
 		String s;
 		switch (value[0]) {
 		case 1:
@@ -204,7 +204,7 @@ public class HandEvaluator implements Comparable<HandEvaluator>{
 			s = "error in Hand.display: value[0] contains invalid value";
 		}
 		s = " " + s;
-		System.out.print(s+",");
+		return s+",";
 	}
 	
 	
