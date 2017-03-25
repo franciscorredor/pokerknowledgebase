@@ -119,7 +119,23 @@ public class Hand {
 			}
 		}
         
-        //Para los resultados q son WIN, realizar una segunta iteracion con el ultimo valor (secondValue)
+        //Para los resultados q son WIN, realizar una segunda iteracion con el ultimo valor (secondValue)
+        /*
+         * Iteracion 02
+         */
+        for (int i = 0; i < winEvaluator.length; i++) {
+        	if (resultado[i].equals("WIN")){
+        		int valAct = Integer.parseInt( winEvaluator[i].split(",")[9].trim());
+        		for (int j = 0; j < winEvaluator.length; j++) {
+        			if (resultado[j].equals("WIN")){
+        				int valFut = Integer.parseInt( winEvaluator[j].split(",")[9].trim());
+        				if (valAct < valFut){
+        					resultado[i] = "LOST";
+        				}
+        			}
+    			}
+        	}
+		}
 		
         
 		
