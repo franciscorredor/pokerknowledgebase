@@ -2,10 +2,12 @@ package com.wirelesssoft.play;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import com.wirelesssoft.evaluate.HandEvaluator;
+import com.wirelesssoft.object.CardValue;
 import com.wirelesssoft.object.Deck;
 import com.wirelesssoft.object.PokerCard;
 
@@ -144,9 +146,40 @@ public class Hand {
 			winEvaluator[i] += ","+resultado[i];
 		}
 		
+		//PrintCards: to Human
+//		for (int i = 0; i < resultado.length; i++) {
+//			//System.out.println("-- ["+(i +1)+"] --");
+//			System.out.println(winEvaluator[i]);
+//		}
+		
+		
+		CardValue cv = new CardValue();
+		//PrintCards: to MachineLEarnig
 		for (int i = 0; i < resultado.length; i++) {
-			//System.out.println("-- ["+(i +1)+"] --");
-			System.out.println(winEvaluator[i]);
+			String printMe[] = winEvaluator[i].split(",");
+			//cv.getHmCrdVle().get(printMe[1]);
+			Integer valores[] = new Integer[5];
+			valores[0] = cv.getHmCrdVle().get(printMe[1].trim());
+			valores[1] = cv.getHmCrdVle().get(printMe[2].trim());
+			valores[2] = cv.getHmCrdVle().get(printMe[3].trim());
+			valores[3] = cv.getHmCrdVle().get(printMe[4].trim());
+			valores[4] = cv.getHmCrdVle().get(printMe[5].trim());
+			Arrays.sort(valores);
+			System.out.println(valores[0] +
+					","+valores[1]+
+					","+valores[2]+
+					","+valores[3]+
+					","+valores[4]+
+					","+printMe[10]);
+/*			
+			System.out.println(cv.getHmCrdVle().get(printMe[1].trim()) +
+								","+cv.getHmCrdVle().get(printMe[2].trim())+
+								","+cv.getHmCrdVle().get(printMe[3].trim())+
+								","+cv.getHmCrdVle().get(printMe[4].trim())+
+								","+cv.getHmCrdVle().get(printMe[5].trim())+
+								""+cv.getHmCrdVle().get(printMe[6].trim())+
+								","+cv.getHmCrdVle().get(printMe[7].trim())+
+								","+printMe[10]);*/
 		}
         
         
