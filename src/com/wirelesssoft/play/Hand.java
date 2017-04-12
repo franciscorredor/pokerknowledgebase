@@ -165,21 +165,10 @@ public class Hand {
 			valores[3] = cv.getHmCrdVle().get(printMe[4].trim());
 			valores[4] = cv.getHmCrdVle().get(printMe[5].trim());
 			Arrays.sort(valores);
-			System.out.println(valores[0] +
-					","+valores[1]+
-					","+valores[2]+
-					","+valores[3]+
-					","+valores[4]+
-					","+printMe[10]);
-/*			
-			System.out.println(cv.getHmCrdVle().get(printMe[1].trim()) +
-								","+cv.getHmCrdVle().get(printMe[2].trim())+
-								","+cv.getHmCrdVle().get(printMe[3].trim())+
-								","+cv.getHmCrdVle().get(printMe[4].trim())+
-								","+cv.getHmCrdVle().get(printMe[5].trim())+
-								""+cv.getHmCrdVle().get(printMe[6].trim())+
-								","+cv.getHmCrdVle().get(printMe[7].trim())+
-								","+printMe[10]);*/
+			//System.out.println(winEvaluator[i]);
+			System.out.println(printMe[10] +
+					","+printDeckValuetoMachineLearning(valores));
+
 		}
         
         
@@ -270,6 +259,78 @@ public class Hand {
 //	Verificar la evaluaci[on de las jugadas...
 	                      
 //***********************************************************
+    
+    
+    private String printDeckValuetoMachineLearning(Integer valores[]){
+    	
+    	int val_1 = 0;
+    	int val_2 = 0;
+    	int val_3 = 0;
+    	int val_4 = 0;
+    	int val_5 = 0;
+    	int val_6 = 0;
+    	int val_7 = 0;
+    	int val_8 = 0;
+    	int val_9 = 0;
+    	int val_10 = 0;
+    	int val_11 = 0;
+    	int val_12 = 0;
+    	int val_13 = 0;
+    	
+    	for (Integer integer : valores) {
+			switch (integer) {
+			case 1:
+				val_1++;
+				break;
+			case 2:
+				val_2++;
+				break;
+			case 3:
+				val_3++;
+				break;
+			case 4:
+				val_4++;
+				break;
+			case 5:
+				val_5++;
+				break;
+			case 6:
+				val_6++;
+				break;
+			case 7:
+				val_7++;
+				break;
+			case 8:
+				val_8++;
+				break;
+			case 9:
+				val_9++;
+				break;
+			case 10:
+				val_10++;
+				break;
+			case 11:
+				val_11++;
+				break;
+			case 12:
+				val_12++;
+				break;
+			case 13:
+				val_13++;
+				break;	
+			default:
+				break;
+			}
+		}
+    	
+    	
+    	String retorno = val_1+","+val_2+","+val_3+","+val_4+","+val_5+","+val_6+","+val_7+","
+    						+val_8+","+val_9+","+val_10+","+val_11+","+val_12+","+val_13;
+    	return retorno;
+    	
+    }
+    
+    
         
      
 

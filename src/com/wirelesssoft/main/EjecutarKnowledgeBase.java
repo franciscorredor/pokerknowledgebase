@@ -19,7 +19,7 @@ public class EjecutarKnowledgeBase {
 	 */
 	public static void main(String[] args) {
 		System.out.println("inicio" + new Date());
-		for (int i = 0; i <1; i++) {
+		for (int i = 0; i <10000; i++) {
 			//System.out.println("-- Iteracion ["+(i)+"] --");
 			Deck d1 = new Deck();
 			Hand h = new Hand(d1);
