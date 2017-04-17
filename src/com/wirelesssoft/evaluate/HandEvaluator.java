@@ -2,6 +2,7 @@ package com.wirelesssoft.evaluate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.wirelesssoft.object.PokerCard;
 
@@ -248,6 +249,45 @@ public class HandEvaluator implements Comparable<HandEvaluator>{
 			return 13;
 		}
 		return value[1];
+	}
+	
+	
+	/*
+	 * Retorna el maximo valor de una pinta de las primeras 5 cartas
+	 */
+	
+	public String getSuits(){
+		String retorno = "";
+		int cont_0C = 0;
+		int cont_1P = 0;
+		int cont_2D = 0;
+		int cont_3T = 0;
+		for (int i = 0; i < 5; i++) {
+			if (cards.get(i).getSuit() == 0){
+				cont_0C++;
+			}else if (cards.get(i).getSuit() == 1){
+				cont_1P++;
+			}else if (cards.get(i).getSuit() == 2){
+				cont_2D++;
+			}else if (cards.get(i).getSuit() == 3){
+				cont_3T++;
+			}
+		}
+		//System.out.println(cont_0C+","+cont_1P+","+cont_2D+","+cont_3T);
+		List<Integer> evalua = new ArrayList<Integer>();
+		evalua.add(cont_0C);
+		evalua.add(cont_1P);
+		evalua.add(cont_2D);
+		evalua.add(cont_3T);
+		int max = cont_0C;
+		for (Integer entero : evalua) {
+			if (entero.intValue() > max){
+				max = entero.intValue();
+			}
+		}
+		
+		retorno = ""+max;
+		return retorno ;
 	}
 
 }
