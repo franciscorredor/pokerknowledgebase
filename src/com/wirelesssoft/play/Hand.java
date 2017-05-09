@@ -2,8 +2,6 @@ package com.wirelesssoft.play;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import com.wirelesssoft.evaluate.HandEvaluator;
@@ -15,23 +13,27 @@ public class Hand {
 
     private List<PokerCard> cardsGamer1; 
     private List<PokerCard> cardsGamer2;
-    private List<PokerCard> cardsGamer3;
-    private List<PokerCard> cardsGamer4;
-    private List<PokerCard> cardsGamer5;
-    private List<PokerCard> cardsGamer6;
-    private List<PokerCard> cardsGamer7;
+//    private List<PokerCard> cardsGamer3;
+//    private List<PokerCard> cardsGamer4;
+//    private List<PokerCard> cardsGamer5;
+//    private List<PokerCard> cardsGamer6;
+//    private List<PokerCard> cardsGamer7;
+//    private List<PokerCard> cardsGamer8;
+//    private List<PokerCard> cardsGamer9;
     
     private List<PokerCard> tableGame; 
 
-    public Hand(Deck d, int numJugada)
+    public Hand(Deck d)
     {
         cardsGamer1 = new ArrayList<PokerCard>(7);
         cardsGamer2 = new ArrayList<PokerCard>(7);
-        cardsGamer3 = new ArrayList<PokerCard>(7);
-        cardsGamer4 = new ArrayList<PokerCard>(7);
-        cardsGamer5 = new ArrayList<PokerCard>(7);
-        cardsGamer6 = new ArrayList<PokerCard>(7);
-        cardsGamer7 = new ArrayList<PokerCard>(7);
+//        cardsGamer3 = new ArrayList<PokerCard>(7);
+//        cardsGamer4 = new ArrayList<PokerCard>(7);
+//        cardsGamer5 = new ArrayList<PokerCard>(7);
+//        cardsGamer6 = new ArrayList<PokerCard>(7);
+//        cardsGamer7 = new ArrayList<PokerCard>(7);
+//        cardsGamer8 = new ArrayList<PokerCard>(7);
+//        cardsGamer9 = new ArrayList<PokerCard>(7);
         
         tableGame =  new ArrayList<PokerCard>(5);
         
@@ -43,26 +45,34 @@ public class Hand {
         {
         	cardsGamer2.add(d.drawFromDeck());
         }
-        for (int x=0; x<2; x++)
-        {
-        	cardsGamer3.add(d.drawFromDeck());
-        }
-        for (int x=0; x<2; x++)
-        {
-        	cardsGamer4.add(d.drawFromDeck());
-        }
-        for (int x=0; x<2; x++)
-        {
-        	cardsGamer5.add(d.drawFromDeck());
-        }
-        for (int x=0; x<2; x++)
-        {
-        	cardsGamer6.add(d.drawFromDeck());
-        }
-        for (int x=0; x<2; x++)
-        {
-        	cardsGamer7.add(d.drawFromDeck());
-        }
+//        for (int x=0; x<2; x++)
+//        {
+//        	cardsGamer3.add(d.drawFromDeck());
+//        }
+//        for (int x=0; x<2; x++)
+//        {
+//        	cardsGamer4.add(d.drawFromDeck());
+//        }
+//        for (int x=0; x<2; x++)
+//        {
+//        	cardsGamer5.add(d.drawFromDeck());
+//        }
+//        for (int x=0; x<2; x++)
+//        {
+//        	cardsGamer6.add(d.drawFromDeck());
+//        }
+//        for (int x=0; x<2; x++)
+//        {
+//        	cardsGamer7.add(d.drawFromDeck());
+//        }
+//        for (int x=0; x<2; x++)
+//        {
+//        	cardsGamer8.add(d.drawFromDeck());
+//        }        
+//        for (int x=0; x<2; x++)
+//        {
+//        	cardsGamer9.add(d.drawFromDeck());
+//        }
         
         
         //Table Caards
@@ -74,11 +84,13 @@ public class Hand {
        
         cardsGamer1.addAll(tableGame);
         cardsGamer2.addAll(tableGame);
-        cardsGamer3.addAll(tableGame);
-        cardsGamer4.addAll(tableGame);
-        cardsGamer5.addAll(tableGame);
-        cardsGamer6.addAll(tableGame);
-        cardsGamer7.addAll(tableGame);
+//        cardsGamer3.addAll(tableGame);
+//        cardsGamer4.addAll(tableGame);
+//        cardsGamer5.addAll(tableGame);
+//        cardsGamer6.addAll(tableGame);
+//        cardsGamer7.addAll(tableGame);
+//        cardsGamer8.addAll(tableGame);
+//        cardsGamer9.addAll(tableGame);
         
         /*
         System.out.println("\ng1 : ");
@@ -108,8 +120,8 @@ public class Hand {
 		System.out.println("");
 		*/
        
-        String[] winEvaluator = new String[7];
-        String[] resultado = {"WIN", "WIN", "WIN" , "WIN" , "WIN", "WIN", "WIN"};
+        String[] winEvaluator = new String[2];
+        String[] resultado = {"WIN", "WIN" }; //, "WIN" }; //, "WIN" }; //, "WIN"}; //,  "WIN"}; //, "WIN" }; //, "WIN" }; //, "WIN"};
         
         
 		HandEvaluator he1 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer1);
@@ -118,21 +130,27 @@ public class Hand {
         HandEvaluator he2 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer2);
         winEvaluator[1] = he2.display()+he2.toString() + he2.getPrimaryValue()+","+he2.getSecondValue()+","+he2.getSuits();
         
-        HandEvaluator he3 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer3);
-        winEvaluator[2] = he3.display()+he3.toString() + he3.getPrimaryValue()+","+he3.getSecondValue()+","+he3.getSuits();
+//        HandEvaluator he3 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer3);
+//        winEvaluator[2] = he3.display()+he3.toString() + he3.getPrimaryValue()+","+he3.getSecondValue()+","+he3.getSuits();
         
-        HandEvaluator he4 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer4);
-        winEvaluator[3] = he4.display()+he4.toString() + he4.getPrimaryValue()+","+he4.getSecondValue()+","+he4.getSuits();
+//        HandEvaluator he4 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer4);
+//        winEvaluator[3] = he4.display()+he4.toString() + he4.getPrimaryValue()+","+he4.getSecondValue()+","+he4.getSuits();
         
-        HandEvaluator he5 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer5);
-        winEvaluator[4] = he5.display()+he5.toString() + he5.getPrimaryValue()+","+he5.getSecondValue()+","+he5.getSuits();
-        
-        HandEvaluator he6 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer6);
-        winEvaluator[5] = he6.display()+he6.toString() + he6.getPrimaryValue()+","+he6.getSecondValue()+","+he6.getSuits();
-        
-        HandEvaluator he7 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer7);
-        winEvaluator[6] = he7.display()+he7.toString() + he7.getPrimaryValue()+","+he7.getSecondValue()+","+he7.getSuits();
+//        HandEvaluator he5 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer5);
+//        winEvaluator[4] = he5.display()+he5.toString() + he5.getPrimaryValue()+","+he5.getSecondValue()+","+he5.getSuits();
 //        
+//        HandEvaluator he6 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer6);
+//        winEvaluator[5] = he6.display()+he6.toString() + he6.getPrimaryValue()+","+he6.getSecondValue()+","+he6.getSuits();
+        
+//        HandEvaluator he7 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer7);
+//        winEvaluator[6] = he7.display()+he7.toString() + he7.getPrimaryValue()+","+he7.getSecondValue()+","+he7.getSuits();
+        
+//        HandEvaluator he8 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer8);
+//        winEvaluator[7] = he8.display()+he8.toString() + he8.getPrimaryValue()+","+he8.getSecondValue()+","+he8.getSuits();
+        
+//        HandEvaluator he9 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer9);
+//        winEvaluator[8] = he9.display()+he9.toString() + he9.getPrimaryValue()+","+he9.getSecondValue()+","+he9.getSuits();
+        
         /*
          * Iteracion 01
          */
@@ -180,47 +198,88 @@ public class Hand {
 		
 		
 		
-		boolean imprimirW = false;
-		boolean imprimirL = false;
+//		boolean imprimirW = false;
+//		boolean imprimirL = false;
 		CardValue cv = new CardValue();
 		//PrintCards: to MachineLEarnig
 		for (int i = 0; i < resultado.length; i++) {
 			
-			if(imprimirW&&imprimirL){
-				break;
-			}
+//			if(imprimirW&&imprimirL){
+//				break;
+//			}
 			
 			String printMe[] = winEvaluator[i].split(",");
 			//cv.getHmCrdVle().get(printMe[1]);
-			Integer valores[] = new Integer[5]; //new Integer[7];
-			valores[0] = cv.getHmCrdVle().get(printMe[1].trim());
-			valores[1] = cv.getHmCrdVle().get(printMe[2].trim());
-			valores[2] = cv.getHmCrdVle().get(printMe[3].trim());
-			valores[3] = cv.getHmCrdVle().get(printMe[4].trim());
-			valores[4] = cv.getHmCrdVle().get(printMe[5].trim());
+			Integer valoresPrivados[] = new Integer[2]; //new Integer[7];
+			valoresPrivados[0] = cv.getHmCrdVle().get(printMe[1].trim());
+			valoresPrivados[1] = cv.getHmCrdVle().get(printMe[2].trim());
+			Arrays.sort(valoresPrivados);
+			Integer valoresPublicos[] = new Integer[3]; //new Integer[7];
+			valoresPublicos[0] = cv.getHmCrdVle().get(printMe[3].trim());
+			valoresPublicos[1] = cv.getHmCrdVle().get(printMe[4].trim());
+			valoresPublicos[2] = cv.getHmCrdVle().get(printMe[5].trim());
+			Arrays.sort(valoresPublicos);
+//			valores[2] = cv.getHmCrdVle().get(printMe[3].trim());
+//			valores[3] = cv.getHmCrdVle().get(printMe[4].trim());
+//			valores[4] = cv.getHmCrdVle().get(printMe[5].trim());
 			//valores[5] = cv.getHmCrdVle().get(printMe[6].trim());
 			//valores[6] = cv.getHmCrdVle().get(printMe[7].trim());
-			Arrays.sort(valores);
+			//
 			//System.out.println(winEvaluator[i]);
+			/*
+			System.out.println(printMe[11]
+					//","+printDeckValuetoMachineLearning(valores)
+					+","+cv.getHmCrdVle().get(printMe[1].trim())
+					+","+cv.getHmCrdVle().get(printMe[2].trim())
+					+","+cv.getHmCrdVle().get(printMe[3].trim())
+					+","+cv.getHmCrdVle().get(printMe[4].trim())
+					+","+cv.getHmCrdVle().get(printMe[5].trim())
+					//+","+printMe[10].trim() //Maximo numero de cartas de la misma pineta para el flush
+					+",7"); //  numJugada);
+					*/
+			
+			System.out.println(printMe[11]
+					//","+printDeckValuetoMachineLearning(valores)
+					+","+valoresPrivados[0]
+					+","+valoresPrivados[1]
+					+","+valoresPublicos[0]
+					+","+valoresPublicos[1]
+					+","+valoresPublicos[2]
+					//+","+printMe[10].trim() //Maximo numero de cartas de la misma pineta para el flush
+					+",2"); //  numJugada);
+
+/*			
 			if (printMe[11].startsWith("LOST")&&imprimirW){
 				if (imprimirL){
 					continue;
 				}
-				System.out.println(printMe[11] +
-						","+printDeckValuetoMachineLearning(valores)
-						+","+printMe[10].trim()+",7"); //  numJugada);
+				System.out.println(printMe[11]
+						//","+printDeckValuetoMachineLearning(valores)
+						+","+cv.getHmCrdVle().get(printMe[1].trim())
+						+","+cv.getHmCrdVle().get(printMe[2].trim())
+						+","+cv.getHmCrdVle().get(printMe[3].trim())
+						+","+cv.getHmCrdVle().get(printMe[4].trim())
+						+","+cv.getHmCrdVle().get(printMe[5].trim())
+						//+","+printMe[10].trim() //Maximo numero de cartas de la misma pineta para el flush
+						+",7"); //  numJugada);
 				imprimirL = true;
 				
 			}else if (printMe[11].startsWith("WIN")){
 				if (imprimirW){
 					continue;
 				}
-				System.out.println(printMe[11] +
-						","+printDeckValuetoMachineLearning(valores)
-						+","+printMe[10].trim()+",7");  //numJugada);
+				System.out.println(printMe[11]
+						//","+printDeckValuetoMachineLearning(valores)
+						+","+cv.getHmCrdVle().get(printMe[1].trim())
+						+","+cv.getHmCrdVle().get(printMe[2].trim())
+						+","+cv.getHmCrdVle().get(printMe[3].trim())
+						+","+cv.getHmCrdVle().get(printMe[4].trim())
+						+","+cv.getHmCrdVle().get(printMe[5].trim())
+						//+","+printMe[10].trim() //Maximo numero de cartas de la misma pineta para el flush
+						+",7");  //numJugada);
 				imprimirW = true;
 			}
-			
+*/		
 
 		}
 		
@@ -313,7 +372,7 @@ public class Hand {
 //	Verificar la evaluaci[on de las jugadas...
 	                      
 //***********************************************************
-    
+    /*
     
     private String printDeckValuetoMachineLearning(Integer valores[]){
     	
@@ -383,7 +442,7 @@ public class Hand {
     	return retorno;
     	
     }
-    
+*/    
     
         
      
@@ -391,3 +450,4 @@ public class Hand {
 
  
 }
+

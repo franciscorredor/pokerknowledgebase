@@ -19,15 +19,11 @@ public class EjecutarKnowledgeBase {
 	 */
 	public static void main(String[] args) {
 		System.out.println("inicio" + new Date());
-		int numJugada = 0;
-		for (int i = 0; i <1000; i++) {
+		for (int i = 0; i <1; i++) {
 			//System.out.println("-- Iteracion ["+(i)+"] --");
 			Deck d1 = new Deck();
 			//System.out.println("numJugada%15:"+(numJugada%15));
-			Hand h = new Hand(d1, numJugada++);
-			if (numJugada%5 == 0){
-				numJugada = 0;
-			}
+			Hand h = new Hand(d1);
 		}
 		
 		System.out.println("fin" + new Date());
