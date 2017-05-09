@@ -13,7 +13,7 @@ public class Hand {
 
     private List<PokerCard> cardsGamer1; 
     private List<PokerCard> cardsGamer2;
-//    private List<PokerCard> cardsGamer3;
+    private List<PokerCard> cardsGamer3;
 //    private List<PokerCard> cardsGamer4;
 //    private List<PokerCard> cardsGamer5;
 //    private List<PokerCard> cardsGamer6;
@@ -27,7 +27,7 @@ public class Hand {
     {
         cardsGamer1 = new ArrayList<PokerCard>(7);
         cardsGamer2 = new ArrayList<PokerCard>(7);
-//        cardsGamer3 = new ArrayList<PokerCard>(7);
+        cardsGamer3 = new ArrayList<PokerCard>(7);
 //        cardsGamer4 = new ArrayList<PokerCard>(7);
 //        cardsGamer5 = new ArrayList<PokerCard>(7);
 //        cardsGamer6 = new ArrayList<PokerCard>(7);
@@ -45,10 +45,10 @@ public class Hand {
         {
         	cardsGamer2.add(d.drawFromDeck());
         }
-//        for (int x=0; x<2; x++)
-//        {
-//        	cardsGamer3.add(d.drawFromDeck());
-//        }
+        for (int x=0; x<2; x++)
+        {
+        	cardsGamer3.add(d.drawFromDeck());
+        }
 //        for (int x=0; x<2; x++)
 //        {
 //        	cardsGamer4.add(d.drawFromDeck());
@@ -84,7 +84,7 @@ public class Hand {
        
         cardsGamer1.addAll(tableGame);
         cardsGamer2.addAll(tableGame);
-//        cardsGamer3.addAll(tableGame);
+        cardsGamer3.addAll(tableGame);
 //        cardsGamer4.addAll(tableGame);
 //        cardsGamer5.addAll(tableGame);
 //        cardsGamer6.addAll(tableGame);
@@ -121,7 +121,7 @@ public class Hand {
 		*/
        
         String[] winEvaluator = new String[2];
-        String[] resultado = {"WIN", "WIN" }; //, "WIN" }; //, "WIN" }; //, "WIN"}; //,  "WIN"}; //, "WIN" }; //, "WIN" }; //, "WIN"};
+        String[] resultado = {"WIN", "WIN" , "WIN" }; //, "WIN" }; //, "WIN"}; //,  "WIN"}; //, "WIN" }; //, "WIN" }; //, "WIN"};
         
         
 		HandEvaluator he1 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer1);
@@ -130,8 +130,8 @@ public class Hand {
         HandEvaluator he2 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer2);
         winEvaluator[1] = he2.display()+he2.toString() + he2.getPrimaryValue()+","+he2.getSecondValue()+","+he2.getSuits();
         
-//        HandEvaluator he3 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer3);
-//        winEvaluator[2] = he3.display()+he3.toString() + he3.getPrimaryValue()+","+he3.getSecondValue()+","+he3.getSuits();
+        HandEvaluator he3 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer3);
+        winEvaluator[2] = he3.display()+he3.toString() + he3.getPrimaryValue()+","+he3.getSecondValue()+","+he3.getSuits();
         
 //        HandEvaluator he4 = new HandEvaluator((ArrayList<PokerCard>) cardsGamer4);
 //        winEvaluator[3] = he4.display()+he4.toString() + he4.getPrimaryValue()+","+he4.getSecondValue()+","+he4.getSuits();
@@ -246,7 +246,8 @@ public class Hand {
 					+","+valoresPublicos[1]
 					+","+valoresPublicos[2]
 					//+","+printMe[10].trim() //Maximo numero de cartas de la misma pineta para el flush
-					+",2"); //  numJugada);
+					+",3" //  numJugada
+					+"!"+winEvaluator[i]);
 
 /*			
 			if (printMe[11].startsWith("LOST")&&imprimirW){
